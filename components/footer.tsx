@@ -189,10 +189,8 @@ export function Footer() {
         {/* Legal Disclaimer */}
         <div className="mt-10 border-t border-slate-100 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
           <div className="text-slate-500 text-center md:text-left">
-            <p>© {new Date().getFullYear()} LandParcel Realtors Pvt. Ltd. All rights reserved.</p>
-            <p className="text-[11px] text-slate-400 mt-0.5">
-              RERA Registration No: MAHARERA/AA/51800039201. Prices and availability are subject to contract.
-            </p>
+            <p>© {new Date().getFullYear()} LandParcel Realtors All rights reserved.</p>
+            
           </div>
 
           <div className="flex items-center gap-6 text-slate-500">
