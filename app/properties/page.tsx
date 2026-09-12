@@ -364,11 +364,9 @@ function PropertiesExplorerContent() {
                   className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900 focus:bg-white focus:border-emerald-600 focus:outline-none"
                 >
                   <option value="ALL">All Categories</option>
-                  <option value="VILLA">Luxury Villa</option>
-                  <option value="PENTHOUSE">Sky Penthouse</option>
-                  <option value="APARTMENT">Modern Apartment</option>
-                  <option value="PLOT">Gated Land Plot</option>
-                  <option value="COMMERCIAL">Commercial Hub</option>
+                  <option value="VILLA">Plot</option>
+                  <option value="PENTHOUSE">Kothi</option>
+                  <option value="APARTMENT">Floor/Flat</option>                  
                 </select>
               </div>
 
