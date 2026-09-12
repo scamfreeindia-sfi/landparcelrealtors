@@ -68,21 +68,21 @@ export const DataStore = {
       result = result.filter(
         (p) =>
           p.title.toLowerCase().includes(q) ||
-          p.locality.toLowerCase().includes(q) ||
-          p.city.toLowerCase().includes(q) ||
+          p.locality?.toLowerCase().includes(q) ||
+          p.city?.toLowerCase().includes(q) ||
           p.description.toLowerCase().includes(q)
       );
     }
 
     // City filter
     if (filters.city && filters.city !== "ALL") {
-      result = result.filter((p) => p.city.toLowerCase() === filters.city!.toLowerCase());
+      result = result.filter((p) => p.city?.toLowerCase() === filters.city!.toLowerCase());
     }
 
     // Locality filter
     if (filters.locality) {
       result = result.filter((p) =>
-        p.locality.toLowerCase().includes(filters.locality!.toLowerCase())
+        p.locality?.toLowerCase().includes(filters.locality!.toLowerCase())
       );
     }
 
@@ -701,7 +701,7 @@ export const DataStore = {
     // City distribution
     const cityCounts: Record<string, number> = {};
     store.properties.forEach((p) => {
-      cityCounts[p.city] = (cityCounts[p.city] || 0) + 1;
+      if (p.city) cityCounts[p.city] = (cityCounts[p.city] || 0) + 1;
     });
 
     // Property Type distribution

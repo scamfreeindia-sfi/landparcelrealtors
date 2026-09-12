@@ -102,7 +102,7 @@ export function MapView({
           <div style="width: 240px; border-radius: 12px; overflow: hidden; background: #ffffff; color: #0f172a;">
             <div style="position: relative; width: 100%; height: 120px; overflow: hidden;">
               <img src="${prop.images[0]}" alt="${prop.title}" style="width: 100%; height: 100%; object-fit: cover;" />
-              <div style="position: absolute; top: 8px; left: 8px; background: #059669; color: #ffffff; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px;">
+              <div style="position: absolute; top: 8px; left: 8px; background: #006a4e; color: #ffffff; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px;">
                 ${prop.listingType === "SALE" ? "FOR SALE" : "FOR RENT"}
               </div>
             </div>
@@ -112,8 +112,8 @@ export function MapView({
                 ${prop.title}
               </h4>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px; border-top: 1px solid #e2e8f0; padding-top: 6px;">
-                <span style="font-size: 14px; font-weight: 800; color: #059669;">${formatCurrency(prop.price)}</span>
-                <a href="/properties/${prop.id}" style="font-size: 11px; font-weight: 600; color: #ffffff; background: #059669; padding: 4px 10px; border-radius: 6px; text-decoration: none;">
+                <span style="font-size: 14px; font-weight: 800; color: #006a4e;">${formatCurrency(prop.price)}</span>
+                <a href="/properties/${prop.id}" style="font-size: 11px; font-weight: 600; color: #ffffff; background: #006a4e; padding: 4px 10px; border-radius: 6px; text-decoration: none;">
                   View &rarr;
                 </a>
               </div>

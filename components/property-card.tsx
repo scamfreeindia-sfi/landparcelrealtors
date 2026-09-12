@@ -10,7 +10,6 @@ import {
   Bath,
   Maximize,
   ShieldCheck,
-  Sparkles,
   ChevronLeft,
   ChevronRight,
   ArrowUpRight,
@@ -78,13 +77,7 @@ export function PropertyCard({ property, layout = "grid" }: PropertyCardProps) {
 
             {/* Badges */}
             <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
-              {property.featured && (
-                <span className="flex items-center gap-1 rounded-md bg-amber-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950 shadow-md">
-                  <Sparkles className="h-3 w-3" />
-                  Featured
-                </span>
-              )}
-              <span className="rounded-md bg-emerald-600 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-xs">
+              <span className={`rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-xs ${property.listingType === "SALE" ? "bg-emerald-600" : "bg-blue-600"}`}>
                 {property.listingType === "SALE" ? "For Sale" : "For Rent"}
               </span>
             </div>
@@ -246,27 +239,21 @@ export function PropertyCard({ property, layout = "grid" }: PropertyCardProps) {
 
           {/* Badges */}
           <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
-            {property.featured && (
-              <span className="flex items-center gap-1 rounded-md bg-amber-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950 shadow-md">
-                <Sparkles className="h-3 w-3" />
-                Featured
-              </span>
-            )}
-            <span className="rounded-md bg-emerald-600 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-xs">
+            <span className={`rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-xs ${property.listingType === "SALE" ? "bg-emerald-600" : "bg-blue-600"}`}>
               {property.listingType === "SALE" ? "For Sale" : "For Rent"}
             </span>
           </div>
 
           {/* Wishlist Button */}
-          <button
+          {/* <button
             onClick={handleWishlistClick}
             className="absolute top-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-slate-700 backdrop-blur-md hover:scale-110 hover:text-rose-600 shadow-md transition-all"
             title={wishlisted ? "Remove from Saved" : "Save Property"}
-          >
-            <Heart
+          > */}
+            {/* <Heart
               className={`h-4 w-4 ${wishlisted ? "fill-rose-500 text-rose-500" : ""}`}
-            />
-          </button>
+            /> */}
+          {/* </button> */}
 
           {/* Price Overlay on image bottom */}
           <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between z-10">
@@ -309,32 +296,13 @@ export function PropertyCard({ property, layout = "grid" }: PropertyCardProps) {
 
         {/* Card Body */}
         <div className="flex flex-1 flex-col justify-between p-4">
-          <div>
-            {/* Location & Verification */}
-            <div className="flex items-center gap-1 text-xs text-slate-500 mb-1.5">
-              <MapPin className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-              <span className="truncate">
-                {property.locality}, {property.city}
-              </span>
-              {property.verified && (
-                <span className="flex items-center gap-0.5 text-[10px] text-emerald-600 font-semibold ml-auto shrink-0">
-                  <ShieldCheck className="h-3 w-3" />
-                  RERA
-                </span>
-              )}
-            </div>
-
+          <div>            
             {/* Title */}
             <Link href={`/properties/${property.id}`}>
               <h3 className="text-base font-bold text-slate-900 group-hover:text-emerald-600 transition-colors line-clamp-1">
                 {property.title}
               </h3>
             </Link>
-
-            {/* Description Snippet */}
-            <p className="mt-1 text-xs text-slate-500 line-clamp-2 leading-relaxed">
-              {property.description}
-            </p>
           </div>
 
           {/* Specs Matrix */}

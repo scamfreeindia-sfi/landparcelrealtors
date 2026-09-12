@@ -22,6 +22,7 @@ import { useAuth } from "@/lib/auth-context";
 import { useWishlist } from "@/lib/wishlist-context";
 import { AuthModal } from "./auth-modal";
 import { ProfileModal } from "./profile-modal";
+import Image from "next/image";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -39,78 +40,48 @@ export function Navbar() {
   const [roleDropdownOpen, setRoleDropdownOpen] = useState(false);
   const [selectedCity, setSelectedCity] = useState("All Cities");
 
-  const navLinks = [
-    { name: "Buy", href: "/properties?listingType=SALE" },
-    { name: "Rent", href: "/properties?listingType=RENT" },
-    { name: "Commercial", href: "/properties?propertyType=COMMERCIAL" },
-    { name: "Plots", href: "/properties?propertyType=PLOT" },
-    { name: "Villas", href: "/properties?propertyType=VILLA" },
-  ];
+  
 
-  const cities = ["All Cities", "Mumbai", "Bangalore", "Delhi NCR", "Hyderabad", "Pune", "Goa"];
+  const cities = ["All", "Chandigarh", "New Chandigarh", "Mohali", "Kharar"];
 
   
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-xl shadow-xs transition-all">
+      <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 shadow-xs backdrop-blur-xl transition-all">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+
           {/* Brand Logo */}
           <div className="flex items-center gap-6">
             <Link href="/" className="group flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-emerald-600 via-emerald-500 to-teal-500 p-2 text-white shadow-md shadow-emerald-600/20 transition-transform group-hover:scale-105">
-                <Building2 className="h-6 w-6" />
-              </div>
+              <Image
+                src="/logo.png"
+                alt="LandParcel Logo"
+                width={150}
+                height={50}
+                priority
+                className="h-10 w-auto object-contain rounded-lg transition-transform group-hover:scale-105"
+              />
+
               <div>
                 <span className="text-xl font-bold tracking-tight text-slate-900">
                   Land<span className="text-emerald-600">Parcel</span>
                 </span>
+
                 <span className="block text-[10px] font-semibold uppercase tracking-widest text-slate-500">
-                  Luxury Realty
+                  Real Estate
                 </span>
               </div>
             </Link>
 
             {/* City Selector */}
-            
           </div>
-
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => {
-              const isActive = pathname.startsWith(link.href);
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`rounded-lg px-3.5 py-2 text-sm font-medium transition-colors ${
-                    isActive
-                      ? "bg-emerald-50 text-emerald-700 font-semibold"
-                      : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </nav>
+         
 
           {/* Right Action Icons & Role Switcher */}
           <div className="hidden sm:flex items-center gap-3">
-            {/* Wishlist Link */}
-            <Link
-              href="/dashboard?tab=wishlist"
-              className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 hover:border-emerald-500/50 hover:text-slate-900 shadow-xs transition-colors"
-              title="Saved Properties"
-            >
-              <Heart className="h-4 w-4" />
-              {wishlistCount > 0 && (
-                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600 text-[10px] font-bold text-white ring-2 ring-white animate-in fade-in">
-                  {wishlistCount}
-                </span>
-              )}
-            </Link>
-
+            
             {/* Post Property CTA Button */}
             <Link
               href="/agent?action=new"
@@ -173,20 +144,7 @@ export function Navbar() {
                 ))}
               </select>
             </div>
-
-            <div className="space-y-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block rounded-lg px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-100"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-
+          
             <div className="pt-3 border-t border-slate-100 space-y-2">
               <Link
                 href="/dashboard"

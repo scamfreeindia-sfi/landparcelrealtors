@@ -49,13 +49,13 @@ export function AdminListingsTab({
   const filtered = properties.filter((p) => {
     if (statusFilter !== "ALL" && p.status !== statusFilter) return false;
     if (typeFilter !== "ALL" && p.propertyType !== typeFilter) return false;
-    if (cityFilter !== "ALL" && p.city.toLowerCase() !== cityFilter.toLowerCase()) return false;
+    if (cityFilter !== "ALL" && p.city?.toLowerCase() !== cityFilter.toLowerCase()) return false;
     if (search.trim()) {
       const q = search.toLowerCase().trim();
       return (
         p.title.toLowerCase().includes(q) ||
-        p.locality.toLowerCase().includes(q) ||
-        p.city.toLowerCase().includes(q) ||
+        p.locality?.toLowerCase().includes(q) ||
+        p.city?.toLowerCase().includes(q) ||
         p.id.toLowerCase().includes(q)
       );
     }

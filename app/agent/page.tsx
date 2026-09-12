@@ -7,8 +7,6 @@ import Link from "next/link";
 import {
   Briefcase,
   PlusCircle,
-  Building2,
-  Users,
   Eye,
   CheckCircle2,
   AlertCircle,
@@ -22,7 +20,6 @@ import {
   ExternalLink,
   DollarSign,
   Sparkles,
-  ShieldCheck,
   Check,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
@@ -182,99 +179,9 @@ function AgentPanelContent() {
     return p.status === statusFilter;
   });
 
-  const totalValue = agentProperties.reduce((acc, curr) => acc + curr.price, 0);
-
   return (
     <div className="min-h-screen bg-slate-50 py-8 text-slate-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
-        {/* Agent Header Banner */}
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-md">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <div className="relative h-16 w-16 sm:h-20 sm:w-20 overflow-hidden rounded-2xl border-2 border-emerald-500 shadow-sm">
-                <Image
-                  src={user?.avatar || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80"}
-                  alt={user?.name || "Agent"}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <div className="flex items-center gap-2">
-                  <h1 className="text-xl sm:text-2xl font-black text-slate-900">
-                    {user?.name || "Vikram Singhania"}
-                  </h1>
-                  <span className="rounded-md bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-800 border border-emerald-200">
-                    CERTIFIED BUILDER & AGENT
-                  </span>
-                </div>
-                <p className="text-xs text-slate-500 mt-1">
-                  Singhania Luxury Estates & Realty • RERA-MH-2023-884920
-                </p>
-                <p className="text-xs text-emerald-700 mt-1 flex items-center gap-1 font-semibold">
-                  <ShieldCheck className="h-3.5 w-3.5" />
-                  Direct Listing & Lead Routing Enabled
-                </p>
-              </div>
-            </div>
-
-            {/* Quick Stats Grid */}
-            <div className="grid grid-cols-3 gap-3 text-center">
-              <div className="rounded-2xl bg-slate-50 p-3 border border-slate-200">
-                <div className="text-xl font-black text-slate-900">{agentProperties.length}</div>
-                <div className="text-[10px] text-slate-500 font-semibold">Active Listings</div>
-              </div>
-              <div className="rounded-2xl bg-slate-50 p-3 border border-slate-200">
-                <div className="text-xl font-black text-emerald-700">{inquiries.length}</div>
-                <div className="text-[10px] text-slate-500 font-semibold">Client Leads</div>
-              </div>
-              <div className="rounded-2xl bg-slate-50 p-3 border border-slate-200">
-                <div className="text-xl font-black text-amber-700">{formatCurrency(totalValue)}</div>
-                <div className="text-[10px] text-slate-500 font-semibold">Inventory Value</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Navigation Tabs */}
-          <div className="mt-8 flex flex-wrap gap-2 border-t border-slate-100 pt-4">
-            <button
-              onClick={() => setActiveTab("listings")}
-              className={`flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
-                activeTab === "listings"
-                  ? "bg-emerald-600 text-white shadow-xs"
-                  : "bg-slate-50 text-slate-700 border border-slate-200 hover:bg-slate-100"
-              }`}
-            >
-              <Building2 className="h-4 w-4" />
-              <span>Listings Management ({agentProperties.length})</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab("new_property")}
-              className={`flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
-                activeTab === "new_property"
-                  ? "bg-emerald-600 text-white shadow-xs"
-                  : "bg-slate-50 text-slate-700 border border-slate-200 hover:bg-slate-100"
-              }`}
-            >
-              <PlusCircle className="h-4 w-4" />
-              <span>+ Add New Property</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab("leads")}
-              className={`flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
-                activeTab === "leads"
-                  ? "bg-emerald-600 text-white shadow-xs"
-                  : "bg-slate-50 text-slate-700 border border-slate-200 hover:bg-slate-100"
-              }`}
-            >
-              <Users className="h-4 w-4" />
-              <span>Lead & Inquiry Pipeline ({inquiries.length})</span>
-            </button>
-          </div>
-        </div>
-
         {/* Tab 1: Listings Management */}
         {activeTab === "listings" && (
           <div className="space-y-6">
@@ -518,32 +425,6 @@ function AgentPanelContent() {
                     />
                   </div>
 
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Latitude Coordinate
-                    </label>
-                    <input
-                      type="number"
-                      step="any"
-                      value={lat}
-                      onChange={(e) => setLat(Number(e.target.value))}
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs text-slate-900 focus:bg-white focus:border-emerald-600 focus:outline-none"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Longitude Coordinate
-                    </label>
-                    <input
-                      type="number"
-                      step="any"
-                      value={lng}
-                      onChange={(e) => setLng(Number(e.target.value))}
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs text-slate-900 focus:bg-white focus:border-emerald-600 focus:outline-none"
-                    />
-                  </div>
-
                   <div className="sm:col-span-4">
                     <label className="block text-xs font-semibold text-slate-700 mb-1">
                       Full Address
@@ -672,7 +553,7 @@ function AgentPanelContent() {
               </div>
 
               {/* Section 4: Image URLs */}
-              <div className="space-y-4">
+              {/* <div className="space-y-4">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-800 border-b border-slate-100 pb-2">
                   4. High-Resolution Imagery
                 </h3>
@@ -708,7 +589,7 @@ function AgentPanelContent() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* Section 5: Amenities */}
               <div className="space-y-4">
@@ -753,7 +634,7 @@ function AgentPanelContent() {
                   className="flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 px-8 py-3.5 text-sm font-bold text-white shadow-md shadow-emerald-600/20 hover:from-emerald-500 hover:to-teal-500 transition-all hover:scale-[1.01] cursor-pointer"
                 >
                   <CheckCircle2 className="h-5 w-5" />
-                  <span>Publish Property Listing Live</span>
+                  <span>Property Listing Live</span>
                 </button>
               </div>
             </form>
@@ -858,7 +739,7 @@ function AgentPanelContent() {
 
 export default function AgentPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-slate-50 p-8 text-center text-slate-500">Loading Agent Panel...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
       <AgentPanelContent />
     </Suspense>
   );

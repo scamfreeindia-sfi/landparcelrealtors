@@ -94,8 +94,6 @@ export const SAMPLE_PROPERTIES: Property[] = [
     price: 325000000, // 32.5 Cr
     propertyType: "PENTHOUSE",
     listingType: "SALE",
-    city: "Mumbai",
-    locality: "Worli Sea Face",
     address: "72 Ocean Crest Promenade, Worli Sea Face, Mumbai, Maharashtra 400018",
     lat: 19.0069,
     lng: 72.8164,
@@ -149,9 +147,7 @@ export const SAMPLE_PROPERTIES: Property[] = [
     description: "Nestled amidst lush emerald foliage in North Goa, Elysian Palms is a masterfully restored 5BHK luxury estate blending Portuguese heritage architecture with modern Scandinavian minimalism. Features private plunge pool, courtyard fountains, sprawling manicured lawn, outdoor barbecue pavilion, and dedicated staff quarters. Just 8 minutes from pristine Vagator Beach.",
     price: 98000000, // 9.8 Cr
     propertyType: "VILLA",
-    listingType: "SALE",
-    city: "Goa",
-    locality: "Assagao",
+    listingType: "SALE",   
     address: "Plot 14, Badem Road, Assagao, North Goa 403507",
     lat: 15.5925,
     lng: 73.7661,
@@ -202,8 +198,7 @@ export const SAMPLE_PROPERTIES: Property[] = [
     price: 24500000, // 2.45 Cr
     propertyType: "APARTMENT",
     listingType: "SALE",
-    city: "Bangalore",
-    locality: "Indiranagar",
+    
     address: "100ft Road, Defence Colony, Indiranagar, Bengaluru, Karnataka 560038",
     lat: 12.9784,
     lng: 77.6408,
@@ -253,8 +248,7 @@ export const SAMPLE_PROPERTIES: Property[] = [
     price: 450000, // 4.5 Lakh / month rent
     propertyType: "COMMERCIAL",
     listingType: "RENT",
-    city: "Hyderabad",
-    locality: "HITEC City",
+   
     address: "Tower B, Phase 2, Mindspace Madhapur, HITEC City, Hyderabad 500081",
     lat: 17.4435,
     lng: 78.3772,
@@ -297,8 +291,7 @@ export const SAMPLE_PROPERTIES: Property[] = [
     price: 18500000, // 1.85 Cr
     propertyType: "PLOT",
     listingType: "SALE",
-    city: "Bangalore",
-    locality: "Devanahalli",
+  
     address: "Greenwood Enclave, Near IVC Road, Devanahalli, Bengaluru 562110",
     lat: 13.2458,
     lng: 77.7126,
@@ -335,11 +328,9 @@ export const SAMPLE_PROPERTIES: Property[] = [
     id: "prop-6",
     title: "The Regency Diplomatic Villa",
     description: "Exquisite 5BHK ultra-luxury bungalow situated on Golf Course Road, Gurugram. Designed by award-winning architects, featuring heated indoor swimming pool, home theater with Dolby Atmos, European designer bath suites, manicured Japanese Zen garden, and private guest wing.",
-    price: 185000000, // 18.5 Cr
+    price: 185000000,
     propertyType: "VILLA",
     listingType: "SALE",
-    city: "Delhi NCR",
-    locality: "Golf Course Road, Gurugram",
     address: "Block D, DLF Phase 5, Golf Course Road, Gurugram, Haryana 122002",
     lat: 28.4595,
     lng: 77.0266,
@@ -382,8 +373,6 @@ export const SAMPLE_PROPERTIES: Property[] = [
     price: 8500000, // 85 Lakh
     propertyType: "APARTMENT",
     listingType: "SALE",
-    city: "Pune",
-    locality: "Baner",
     address: "Balewadi High Street Road, Baner, Pune, Maharashtra 411045",
     lat: 18.5596,
     lng: 73.7799,
@@ -423,8 +412,6 @@ export const SAMPLE_PROPERTIES: Property[] = [
     price: 180000, // 1.8 Lakh / month rent
     propertyType: "APARTMENT",
     listingType: "RENT",
-    city: "Mumbai",
-    locality: "Bandra West",
     address: "Perry Cross Road, Near Carter Road, Bandra West, Mumbai 400050",
     lat: 19.0596,
     lng: 72.8295,
@@ -464,8 +451,6 @@ export const SAMPLE_PROPERTIES: Property[] = [
     price: 650000, // 6.5 Lakh / month rent
     propertyType: "COMMERCIAL",
     listingType: "RENT",
-    city: "Bangalore",
-    locality: "Indiranagar",
     address: "Main 100ft Road, Stage 2, Indiranagar, Bengaluru, Karnataka 560008",
     lat: 12.9719,
     lng: 77.6412,
@@ -505,8 +490,6 @@ export const SAMPLE_PROPERTIES: Property[] = [
     price: 34000000, // 3.4 Cr
     propertyType: "PENTHOUSE",
     listingType: "SALE",
-    city: "Hyderabad",
-    locality: "Jubilee Hills",
     address: "Road No. 36, Jubilee Hills, Hyderabad 500033",
     lat: 17.4319,
     lng: 78.4073,

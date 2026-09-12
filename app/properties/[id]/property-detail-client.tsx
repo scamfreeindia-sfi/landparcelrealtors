@@ -163,24 +163,7 @@ export function PropertyDetailClient({
                 <Share2 className="h-3.5 w-3.5" />
                 <span>Share</span>
               </button>
-              <button
-                onClick={() => toggleWishlist(property)}
-                className={`flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-semibold transition-colors cursor-pointer ${
-                  wishlisted
-                    ? "border-rose-300 bg-rose-50 text-rose-600 font-bold"
-                    : "border-slate-200 bg-white text-slate-700 hover:text-slate-900 shadow-xs"
-                }`}
-              >
-                <Heart className={`h-3.5 w-3.5 ${wishlisted ? "fill-rose-500" : ""}`} />
-                <span>{wishlisted ? "Saved" : "Save"}</span>
-              </button>
-              <button
-                onClick={() => window.print()}
-                className="hidden sm:flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:text-slate-900 shadow-xs transition-colors cursor-pointer"
-              >
-                <Download className="h-3.5 w-3.5" />
-                <span>Brochure</span>
-              </button>
+              
             </div>
           </div>
 
@@ -203,19 +186,12 @@ export function PropertyDetailClient({
                     RERA Verified
                   </span>
                 )}
-                <span className="rounded-md bg-white border border-slate-200 px-2 py-0.5 text-[10px] font-semibold text-slate-600 shadow-xs">
-                  ID: #{property.id}
-                </span>
+               
               </div>
 
               <h1 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
                 {property.title}
-              </h1>
-
-              <div className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-500">
-                <MapPin className="h-4 w-4 text-emerald-600 shrink-0" />
-                <span>{property.address}</span>
-              </div>
+              </h1>             
             </div>
 
             <div className="text-left lg:text-right shrink-0">
@@ -227,7 +203,7 @@ export function PropertyDetailClient({
               </div>
               {property.areaSqFt > 0 && (
                 <div className="text-xs text-slate-500 mt-1 font-medium">
-                  ₹{Math.round(property.price / property.areaSqFt).toLocaleString()} per sq.ft | Maintenance: {property.maintenanceFee ? `₹${property.maintenanceFee.toLocaleString()}/mo` : "Included"}
+                  Maintenance: {property.maintenanceFee ? `₹${property.maintenanceFee.toLocaleString()}/mo` : "Included"}
                 </div>
               )}
             </div>
@@ -402,147 +378,10 @@ export function PropertyDetailClient({
                   ))}
                 </div>
               </div>
-
-              {/* Interactive Location & Nearby Amenities Map */}
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-bold text-slate-900">Location & Neighborhood</h2>
-                  <span className="text-xs text-slate-500">
-                    📍 {property.locality}, {property.city}
-                  </span>
-                </div>
-                <MapView
-                  properties={[property]}
-                  selectedPropertyId={property.id}
-                  center={[property.lat, property.lng]}
-                  zoom={14}
-                  height="400px"
-                  showNearbyAmenities={true}
-                />
-              </div>
-
-              {/* Embedded Dynamic Loan EMI Calculator */}
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
-                <h2 className="text-lg font-bold text-slate-900">Mortgage & Financing Options</h2>
-                <EMICalculator initialPrice={property.price} />
-              </div>
+        
             </div>
 
-            {/* Right Sticky Booking & Inquiry Column (4 cols) */}
-            <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-20">
-              {/* Agent Profile & Contact Card */}
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl space-y-5">
-                <div className="flex items-center gap-3 pb-4 border-b border-slate-100">
-                  <div className="relative h-14 w-14 overflow-hidden rounded-2xl border-2 border-emerald-500/40">
-                    <Image
-                      src={property.owner?.avatar || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"}
-                      alt={property.owner?.name || "Agent"}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-slate-900">{property.owner?.name || "Vikram Singhania"}</h3>
-                    <p className="text-[11px] text-emerald-700 font-semibold">{property.owner?.companyName || "Singhania Luxury Estates"}</p>
-                    <span className="inline-flex items-center gap-1 text-[10px] text-slate-500 mt-0.5">
-                      <ShieldCheck className="h-3 w-3 text-emerald-600" />
-                      RERA Certified Specialist
-                    </span>
-                  </div>
-                </div>
-
-                {/* Primary CTA Buttons */}
-                <div className="space-y-2.5">
-                  <button
-                    onClick={() => setScheduleModalOpen(true)}
-                    className="w-full flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 py-3.5 text-xs font-bold text-white shadow-md shadow-emerald-600/20 hover:from-emerald-500 hover:to-teal-500 transition-all hover:scale-[1.02] cursor-pointer"
-                  >
-                    <Calendar className="h-4 w-4" />
-                    <span>Schedule Private Visit</span>
-                  </button>
-
-                  <div className="grid grid-cols-2 gap-2">
-                    <button
-                      onClick={() => setPhoneRevealed(true)}
-                      className="flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 py-2.5 text-xs font-semibold text-slate-700 hover:border-slate-300 hover:text-slate-900 transition-colors cursor-pointer"
-                    >
-                      <Phone className="h-3.5 w-3.5 text-emerald-600" />
-                      <span>{phoneRevealed ? (property.owner?.phone || "+91 98200 12345") : "Show Phone"}</span>
-                    </button>
-
-                    <a
-                      href={`https://wa.me/919820012345?text=${encodeURIComponent(`Hi, I am interested in ${property.title} on LandParcel.`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-1.5 rounded-xl border border-emerald-200 bg-emerald-50 py-2.5 text-xs font-semibold text-emerald-800 hover:bg-emerald-100 transition-colors cursor-pointer"
-                    >
-                      <MessageCircle className="h-3.5 w-3.5 text-emerald-600" />
-                      <span>WhatsApp</span>
-                    </a>
-                  </div>
-                </div>
-
-                {/* Quick Inquiry Form */}
-                <div className="pt-2 border-t border-slate-100">
-                  <h4 className="text-xs font-bold text-slate-900 mb-3">Send Direct Inquiry</h4>
-
-                  {inquirySent ? (
-                    <div className="rounded-2xl bg-emerald-50 border border-emerald-200 p-4 text-center space-y-2">
-                      <CheckCircle2 className="h-8 w-8 text-emerald-600 mx-auto" />
-                      <p className="text-xs font-bold text-slate-900">Inquiry Delivered!</p>
-                      <p className="text-[11px] text-slate-500">The listing agent has been notified and will call you promptly.</p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleInquirySubmit} className="space-y-3">
-                      <div>
-                        <input
-                          type="text"
-                          value={inquiryName}
-                          onChange={(e) => setInquiryName(e.target.value)}
-                          placeholder="Your Name"
-                          className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:border-emerald-600 focus:outline-none"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <input
-                          type="email"
-                          value={inquiryEmail}
-                          onChange={(e) => setInquiryEmail(e.target.value)}
-                          placeholder="Your Email"
-                          className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:border-emerald-600 focus:outline-none"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <input
-                          type="tel"
-                          value={inquiryPhone}
-                          onChange={(e) => setInquiryPhone(e.target.value)}
-                          placeholder="Your Mobile (+91)"
-                          className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:border-emerald-600 focus:outline-none"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <textarea
-                          rows={3}
-                          value={inquiryMessage}
-                          onChange={(e) => setInquiryMessage(e.target.value)}
-                          className="w-full rounded-xl border border-slate-200 bg-slate-50 p-2 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:border-emerald-600 focus:outline-none"
-                        />
-                      </div>
-                      <button
-                        type="submit"
-                        className="w-full rounded-xl bg-slate-900 hover:bg-slate-800 py-2.5 text-xs font-bold text-white transition-colors cursor-pointer"
-                      >
-                        Submit Direct Lead
-                      </button>
-                    </form>
-                  )}
-                </div>
-              </div>
-            </div>
+        
           </div>
 
           {/* Similar Recommended Properties */}

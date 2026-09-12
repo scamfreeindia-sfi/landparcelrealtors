@@ -26,12 +26,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }).format(property.price);
 
   return {
-    title: `${property.title} in ${property.locality}, ${property.city}`,
-    description: `${property.bedrooms > 0 ? `${property.bedrooms} BHK ` : ""}${property.propertyType} in ${property.locality}, ${property.city}. Priced at ${priceFormatted}. ${property.description.slice(0, 150)}...`,
+    title: property.title,
+    description: `${property.bedrooms > 0 ? `${property.bedrooms} BHK ` : ""}${property.propertyType}. Priced at ${priceFormatted}. ${property.description.slice(0, 150)}...`,
     keywords: [
       property.title,
-      property.city,
-      property.locality,
       property.propertyType,
       "Luxury Real Estate",
       "RERA Verified",

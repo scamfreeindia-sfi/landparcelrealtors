@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  --color-emerald-500: #006a4e;
+  --color-emerald-600: #006a4e;
+  --color-emerald-700: #006a4e;
+  --color-emerald-800: #006a4e;
+  --color-emerald-900: #006a4e;
+}
+
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
@@ -7,7 +15,7 @@
   --card-foreground: #0f172a;
   --popover: #ffffff;
   --popover-foreground: #0f172a;
-  --primary: #059669;
+  --primary: #006a4e;
   --primary-foreground: #ffffff;
   --secondary: #f1f5f9;
   --secondary-foreground: #0f172a;
@@ -19,7 +27,7 @@
   --destructive-foreground: #ffffff;
   --border: #e2e8f0;
   --input: #ffffff;
-  --ring: #059669;
+  --ring: #006a4e;
   --radius: 0.75rem;
 }
 
@@ -55,13 +63,13 @@
 
 .glass-card:hover {
   background: #ffffff;
-  border-color: rgba(16, 185, 129, 0.5);
-  box-shadow: 0 16px 30px -10px rgba(16, 185, 129, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 106, 78, 0.5);
+  box-shadow: 0 16px 30px -10px rgba(0, 106, 78, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   transform: translateY(-2px);
 }
 
 .glow-emerald {
-  box-shadow: 0 4px 25px -5px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 4px 25px -5px rgba(0, 106, 78, 0.25);
 }
 
 .glow-gold {
@@ -117,7 +125,7 @@
 
 /* Gradient text utilities */
 .gradient-text-emerald {
-  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #047857 100%);
+  background: linear-gradient(135deg, #006a4e 0%, #006a4e 50%, #006a4e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

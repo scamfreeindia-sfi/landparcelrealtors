@@ -35,8 +35,8 @@ export interface Property {
   price: number;
   propertyType: PropertyType;
   listingType: ListingType;
-  city: string;
-  locality: string;
+  city?: string;
+  locality?: string;
   address: string;
   lat: number;
   lng: number;
