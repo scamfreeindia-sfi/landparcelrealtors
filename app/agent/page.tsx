@@ -641,7 +641,6 @@ function AgentPanelContent() {
           </div>
         )}
 
-        {/* Tab 3: Lead & Inquiry Pipeline */}
         {activeTab === "leads" && (
           <div className="space-y-6">
             <h2 className="text-xl font-bold text-slate-900">Prospective Buyer Leads & Inquiries</h2>

@@ -17,12 +17,39 @@ import {
   LogOut,
   MapPin,
   Sparkles,
+  Phone,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { useWishlist } from "@/lib/wishlist-context";
 import { AuthModal } from "./auth-modal";
 import { ProfileModal } from "./profile-modal";
 import Image from "next/image";
+
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-3.5 w-3.5" fill="currentColor">
+      <path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.3c0-.9.3-1.5 1.7-1.5H17V2.8c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H8v3.2h2.3v8h3.2Z" />
+    </svg>
+  );
+}
+
+function YoutubeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-3.5 w-3.5" fill="currentColor">
+      <path d="M21.6 8.2a2.9 2.9 0 0 0-2.1-2.1C17.7 5.7 12 5.7 12 5.7s-5.7 0-7.5.4A2.9 2.9 0 0 0 2.4 8.2 30.8 30.8 0 0 0 2 12a30.8 30.8 0 0 0 .4 3.8 2.9 2.9 0 0 0 2.1 2.1c1.8.4 7.5.4 7.5.4s5.7 0 7.5-.4a2.9 2.9 0 0 0 2.1-2.1A30.8 30.8 0 0 0 22 12a30.8 30.8 0 0 0-.4-3.8ZM10 15.5v-7l6 3.5-6 3.5Z" />
+    </svg>
+  );
+}
 
 export function Navbar() {
   const pathname = usePathname();
@@ -48,6 +75,56 @@ export function Navbar() {
 
   return (
     <>
+      <div className="border-b border-slate-200 bg-slate-50/90">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-1.5 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 text-[11px] font-medium text-slate-600">
+            <span className="hidden sm:inline text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">
+              Follow us
+            </span>
+            <div className="flex items-center gap-2">
+              <Link
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition-colors hover:border-emerald-300 hover:text-emerald-700"
+              >
+                <InstagramIcon />
+              </Link>
+              <Link
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition-colors hover:border-emerald-300 hover:text-emerald-700"
+              >
+                <FacebookIcon />
+              </Link>
+              <Link
+                href="https://www.youtube.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="YouTube"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition-colors hover:border-emerald-300 hover:text-emerald-700"
+              >
+                <YoutubeIcon />
+              </Link>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 sm:gap-4 text-[11px] font-semibold text-slate-700">
+            <a href="tel:+919876543210" className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-slate-700 transition-colors hover:border-emerald-300 hover:text-emerald-700">
+              <Phone className="h-3.5 w-3.5" />
+              <span>+91 98765 43210</span>
+            </a>
+            <a href="tel:+919812345678" className="hidden sm:flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-slate-700 transition-colors hover:border-emerald-300 hover:text-emerald-700">
+              <Phone className="h-3.5 w-3.5" />
+              <span>+91 98123 45678</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 shadow-xs backdrop-blur-xl transition-all">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
 
@@ -146,40 +223,7 @@ export function Navbar() {
             </div>
           
             <div className="pt-3 border-t border-slate-100 space-y-2">
-              <Link
-                href="/dashboard"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2 rounded-lg bg-slate-50 px-3 py-2.5 text-sm font-medium text-slate-800 hover:bg-slate-100"
-              >
-                <User className="h-4 w-4 text-emerald-600" />
-                Buyer Dashboard
-              </Link>
-              <Link
-                href="/agent"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2 rounded-lg bg-slate-50 px-3 py-2.5 text-sm font-medium text-slate-800 hover:bg-slate-100"
-              >
-                <Briefcase className="h-4 w-4 text-emerald-600" />
-                Agent / Builder Portal
-              </Link>
-              <Link
-                href="/admin"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2 rounded-lg bg-slate-50 px-3 py-2.5 text-sm font-medium text-slate-800 hover:bg-slate-100"
-              >
-                <ShieldCheck className="h-4 w-4 text-amber-600" />
-                Admin Panel
-              </Link>
-              <button
-                onClick={() => {
-                  setProfileModalOpen(true);
-                  setMobileMenuOpen(false);
-                }}
-                className="w-full flex items-center gap-2 rounded-lg bg-slate-50 px-3 py-2.5 text-sm font-medium text-slate-800 hover:bg-slate-100 text-left"
-              >
-                <User className="h-4 w-4 text-slate-600" />
-                Edit Profile & Password
-              </button>
+                        
               <Link
                 href="/agent?action=new"
                 onClick={() => setMobileMenuOpen(false)}

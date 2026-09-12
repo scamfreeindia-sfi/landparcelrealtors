@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   Heart,
-  MapPin,
   BedDouble,
   Bath,
   Maximize,
@@ -127,9 +126,8 @@ export function PropertyCard({ property, layout = "grid" }: PropertyCardProps) {
               <div className="flex items-start justify-between gap-2">
                 <div>
                   <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-1">
-                    <MapPin className="h-3.5 w-3.5 text-emerald-600" />
                     <span>
-                      {property.locality}, {property.city}
+                       {property.city}
                     </span>
                     {property.verified && (
                       <span className="flex items-center gap-0.5 text-emerald-600 font-medium ml-1">
