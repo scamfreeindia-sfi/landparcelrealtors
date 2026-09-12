@@ -173,11 +173,6 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/admin" className="text-slate-600 hover:text-amber-600 transition-colors">
-                  Admin Moderation Panel
-                </Link>
-              </li>
-              <li>
                 <Link href="/#emi-calculator" className="text-slate-600 hover:text-emerald-600 transition-colors">
                   Mortgage & EMI Estimator
                 </Link>

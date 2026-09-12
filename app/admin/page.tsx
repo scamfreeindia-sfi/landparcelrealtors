@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { DataStore } from "@/lib/store";
 import { useAuth } from "@/lib/auth-context";
 import {
@@ -26,7 +27,12 @@ import { DeletePropertyModal } from "@/components/admin/modals/delete-property-m
 import { LeadNotesModal } from "@/components/admin/modals/lead-notes-modal";
 
 export default function AdminPage() {
+  const router = useRouter();
   const { user, role, logout } = useAuth();
+
+  useEffect(() => {
+    router.replace("/");
+  }, [router]);
 
   // Navigation
   const [activeTab, setActiveTab] = useState<AdminTab>("overview");
