@@ -168,7 +168,7 @@ export function HomeHero({
         </div>
 
         <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 pt-6 text-center md:grid-cols-4">
-          {[['₹4,800+ Cr', 'Assets Transacted', 'text-slate-900'], ['2,400+', 'Verified Residences', 'text-emerald-700'], ['100%', 'RERA & Title Clear', 'text-slate-900'], ['99.4%', 'Client Trust Index', 'text-amber-700']].map(([value, label, color]) => (
+          {[['₹500+', 'Client & Investor', 'text-slate-900'], ['1000+', 'Verified Residences', 'text-emerald-700'], ['100%', 'RERA & Title Clear', 'text-slate-900'], ['99.4%', 'Client Trust Index', 'text-amber-700']].map(([value, label, color]) => (
             <div key={label} className="rounded-2xl border border-white/40 bg-white/90 p-3 shadow-md backdrop-blur-md">
               <div className={`text-xl font-black sm:text-2xl ${color}`}>{value}</div>
               <div className="text-[11px] font-semibold text-slate-600">{label}</div>
