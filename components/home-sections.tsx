@@ -134,7 +134,7 @@ export function HomeHero({
 
           <form onSubmit={onSubmit} className="grid grid-cols-1 items-center gap-3 pt-4 sm:grid-cols-2 lg:grid-cols-5">
             <SearchSelect label="Area" icon={MapPin} value={searchCity} onChange={onCityChange}>
-              <option value="All Cities">All Cities</option>
+              <option value="All Cities">All Area</option>
               <option value="Chandigarh">Chandigarh</option>
               <option value="New Chandigarh">New Chandigarh</option>
               <option value="Mohali">Mohali</option>

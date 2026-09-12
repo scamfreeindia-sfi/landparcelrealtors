@@ -143,7 +143,7 @@ export function AdminListingsTab({
         >
           {CITIES_LIST.map((c) => (
             <option key={c} value={c}>
-              {c === "ALL" ? "All Cities" : c}
+              {c === "ALL" ? "All Area" : c}
             </option>
           ))}
         </select>
