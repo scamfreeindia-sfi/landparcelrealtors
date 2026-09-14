@@ -20,6 +20,59 @@ export default function HomePage() {
   const [searchBHK, setSearchBHK] = useState("ALL");
   const [featuredCategory, setFeaturedCategory] = useState("ALL");
 
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    name: "LandParcel Realtors",
+    url: "https://landparcelrealtors.com",
+    areaServed: ["Mohali", "Chandigarh", "New Chandigarh", "Kharar", "Punjab"],
+    description:
+      "Property dealer and real estate consultant for residential plots, apartments, villas, and commercial investments in Mohali, Chandigarh, New Chandigarh, and Kharar.",
+    knowsAbout: [
+      "flats in Mohali",
+      "plots in Chandigarh",
+      "villas in New Chandigarh",
+      "commercial property in Kharar",
+      "real estate investment in Tricity",
+    ],
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: "Punjab",
+      addressCountry: "IN",
+    },
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Where can I buy property in Mohali, Chandigarh, and New Chandigarh?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "LandParcel Realtors helps buyers find residential plots, flats, villas, and commercial properties in Mohali, Chandigarh, New Chandigarh, and Kharar with verified documentation and local market guidance.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is Kharar a good place to invest in property?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Kharar is a growing real estate market with strong residential demand, better entry pricing, and connectivity to Mohali, Chandigarh, and the airport corridor, making it attractive for buyers and investors.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do you help with flats, villas, and plots in the Tricity region?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, LandParcel Realtors supports buyers for flats, villas, plots, and commercial spaces across Mohali, Chandigarh, New Chandigarh, and Kharar.",
+        },
+      },
+    ],
+  };
+
   const handleHeroSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const params = new URLSearchParams();
@@ -53,27 +106,38 @@ export default function HomePage() {
   );
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
-      <HomeHero
-        activeSearchTab={activeSearchTab}
-        searchCity={searchCity}
-        searchType={searchType}
-        searchBudget={searchBudget}
-        searchBHK={searchBHK}
-        onSearchTabChange={setActiveSearchTab}
-        onCityChange={setSearchCity}
-        onTypeChange={setSearchType}
-        onBudgetChange={setSearchBudget}
-        onBHKChange={setSearchBHK}
-        onSubmit={handleHeroSearch}
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
-      <FeaturedProperties
-        properties={filteredFeaturedProperties}
-        category={featuredCategory}
-        onCategoryChange={setFeaturedCategory}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <TrustSection />
-      <DeveloperPartners />
-    </div>
+
+      <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
+        <HomeHero
+          activeSearchTab={activeSearchTab}
+          searchCity={searchCity}
+          searchType={searchType}
+          searchBudget={searchBudget}
+          searchBHK={searchBHK}
+          onSearchTabChange={setActiveSearchTab}
+          onCityChange={setSearchCity}
+          onTypeChange={setSearchType}
+          onBudgetChange={setSearchBudget}
+          onBHKChange={setSearchBHK}
+          onSubmit={handleHeroSearch}
+        />
+        <FeaturedProperties
+          properties={filteredFeaturedProperties}
+          category={featuredCategory}
+          onCategoryChange={setFeaturedCategory}
+        />
+        <TrustSection />
+        <DeveloperPartners />
+      </div>
+    </>
   );
 }

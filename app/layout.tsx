@@ -5,30 +5,43 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://landparcelrealtors.com"),
   title: {
-    template: "%s | LandParcel Realtors Luxury Estates",
-    default: "LandParcel Realtors | Buy, Rent Luxury Villas, Penthouses & Prime Land Parcels",
+    template: "%s | LandParcel Realtors",
+    default:
+      "Property Dealer in Mohali, Chandigarh, New Chandigarh & Kharar | LandParcel Realtors",
   },
   description:
-    "Discover verified luxury villas, sea-facing penthouses, gated residential plots, and grade-A commercial real estate across Mumbai, Bangalore, Delhi NCR, Hyderabad, Pune, and Goa.",
+    "Buy flats, villas, plots, and commercial property in Mohali, Chandigarh, New Chandigarh, and Kharar. LandParcel Realtors helps buyers and investors find verified homes, gated plots, and investment-ready properties in the Tricity region.",
   keywords: [
-    "Real Estate",
-    "Luxury Homes",
-    "Villas in Goa",
-    "Mumbai Penthouses",
-    "Bangalore Apartments",
-    "Gated Plots",
-    "Commercial Real Estate",
-    "RERA Verified Listings",
+    "property dealer in Mohali",
+    "real estate in Chandigarh",
+    "property in New Chandigarh",
+    "plots in Mohali",
+    "flats in Chandigarh",
+    "villas in Mohali",
+    "plots in Kharar",
+    "commercial property in Mohali",
+    "new Chandigarh property",
+    "Kharar flats",
+    "Chandigarh real estate",
+    "Mohali property dealer",
+    "real estate in Kharar",
+    "New Chandigarh villas",
+    "RERA verified properties in Tricity",
   ],
   authors: [{ name: "LandParcel Realtors" }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://landparcelrealtors.com",
-    title: "LandParcel Realtors | Luxury Real Estate & Prime Land",
+    title:
+      "LandParcel Realtors | Property in Mohali, Chandigarh, New Chandigarh & Kharar",
     description:
-      "Explore curated luxury residential & commercial properties with verified RERA titles, interactive 3D tours, and instant visit bookings.",
+      "Explore premium residential and commercial property in Mohali, Chandigarh, New Chandigarh, and Kharar with verified listings, investment guidance, and personalized site visits.",
     siteName: "LandParcel Realtors",
   },
 };
