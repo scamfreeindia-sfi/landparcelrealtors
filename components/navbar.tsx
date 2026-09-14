@@ -113,13 +113,13 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-3 sm:gap-4 text-[11px] font-semibold text-slate-700">
-            <a href="tel:+919876543210" className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-slate-700 transition-colors hover:border-emerald-300 hover:text-emerald-700">
+            <a href="tel:+917508964612" className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-slate-700 transition-colors hover:border-emerald-300 hover:text-emerald-700">
               <Phone className="h-3.5 w-3.5" />
-              <span>+91 98765 43210</span>
+              <span>+91 7508964612</span>
             </a>
-            <a href="tel:+919812345678" className="hidden sm:flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-slate-700 transition-colors hover:border-emerald-300 hover:text-emerald-700">
+            <a href="tel:+917508964612" className="hidden sm:flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-slate-700 transition-colors hover:border-emerald-300 hover:text-emerald-700">
               <Phone className="h-3.5 w-3.5" />
-              <span>+91 98123 45678</span>
+              <span>+91 7508964612</span>
             </a>
           </div>
         </div>
