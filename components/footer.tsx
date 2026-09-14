@@ -70,15 +70,15 @@ export function Footer() {
             <div className="pt-2 text-xs text-slate-600 space-y-2">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-emerald-600 shrink-0" />
-                <span>Level 14, Platina Tower, BKC, Mumbai, Maharashtra 400051</span>
+                <span>Sco 363 cp square, South Ex II, TDI sector 117 Mohali</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-emerald-600 shrink-0" />
-                <span>+91 1800 209 8899 (Toll-Free Concierge)</span>
+                <span>+91 7508964612</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-emerald-600 shrink-0" />
-                <span>concierge@landparcelrealtors.com</span>
+                <span>landparcelrealtors@gmail.com</span>
               </div>
             </div>
           </div>

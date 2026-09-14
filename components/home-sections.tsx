@@ -102,7 +102,7 @@ export function HomeHero({
       <div className="relative z-10 mx-auto w-full max-w-7xl space-y-8 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-white/90 px-4 py-1.5 text-xs font-bold text-emerald-800 shadow-lg backdrop-blur-md">
           <Sparkles className="h-3.5 w-3.5 text-emerald-600" />
-          <span>Tricity Premium Luxury Real Estate</span>
+           <span>Tricity Premium Luxury Real Estate</span>
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
           <span className="text-slate-600">RERA Verified</span>
         </div>
