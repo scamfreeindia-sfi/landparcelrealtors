@@ -265,7 +265,7 @@ export function TrustSection() {
         <div className="space-y-6 lg:col-span-6">
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">The LandParcel Advantage</span>
           <h2 className="text-3xl font-black leading-tight tracking-tight text-slate-900 sm:text-4xl">Setting New Standards in <br /><span className="gradient-text-emerald">High-End Real Estate</span></h2>
-          <p className="text-sm leading-relaxed text-slate-600">Whether you're acquiring a trophy penthouse in Worli, a Portuguese heritage villa in North Goa, or a prime commercial parcel, our team provides discreet institutional-grade representation.</p>
+          <p className="text-sm leading-relaxed text-slate-600">Whether you are acquiring a kothi in Mohali, a luxurious apartment in New Chandigarh, or a prime commercial or industrial parcel, our team provides discreet institutional-grade representation and paper-work.</p>
           <div className="space-y-4 pt-2">
             {benefits.map(([Icon, title, description, color]) => <div key={title} className="flex items-start gap-3"><div className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-${color}-200 bg-${color}-50 text-${color}-600 shadow-xs`}><Icon className="h-5 w-5" /></div><div><h4 className="text-sm font-bold text-slate-900">{title}</h4><p className="mt-0.5 text-xs text-slate-500">{description}</p></div></div>)}
           </div>

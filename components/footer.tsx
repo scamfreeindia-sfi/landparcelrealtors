@@ -64,7 +64,7 @@ export function Footer() {
             </Link>
 
             <p className="text-xs text-slate-500 leading-relaxed max-w-sm">
-              India's premier modern real estate marketplace for high-end luxury villas, sea-facing penthouses, curated residential plots, and grade-A commercial assets.
+              Mohali's premier modern real estate marketplace for high-end luxury houses and appartments, top-notch commercial spaces, plots, and grade-A industrial assets.
             </p>
 
             <div className="pt-2 text-xs text-slate-600 space-y-2">
