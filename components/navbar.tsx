@@ -69,7 +69,7 @@ export function Navbar() {
 
   
 
-  const cities = ["All", "Chandigarh", "New Chandigarh", "Mohali", "Kharar"];
+  const cities = ["All", "Mohali","New Chandigarh", "Chandigarh","Kharar"];
 
   
 
@@ -83,7 +83,7 @@ export function Navbar() {
             </span>
             <div className="flex items-center gap-2">
               <Link
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/landparcelrealtors?utm_source=qr&stkn=Mml5bWNmOHNheG44"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
@@ -92,7 +92,7 @@ export function Navbar() {
                 <InstagramIcon />
               </Link>
               <Link
-                href="https://www.facebook.com"
+                href="https://www.facebook.com/share/19EduN9iPL/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
@@ -146,7 +146,7 @@ export function Navbar() {
                 </span>
 
                 <span className="block text-[10px] font-semibold uppercase tracking-widest text-slate-500">
-                  Real Estate
+                  Realtors
                 </span>
               </div>
             </Link>

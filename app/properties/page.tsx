@@ -38,7 +38,10 @@ function PropertiesExplorerContent() {
   const [propertyType, setPropertyType] = useState<PropertyType | "ALL">(
     (searchParams.get("propertyType") as PropertyType) || "ALL"
   );
+  const [commercialType, setCommercialType] = useState(searchParams.get("commercialType") || "ALL");
   const [selectedBHK, setSelectedBHK] = useState<string>(searchParams.get("bedrooms") || "ALL");
+  const [minArea, setMinArea] = useState<number>(searchParams.get("minArea") ? Number(searchParams.get("minArea")) : 0);
+  const [maxArea, setMaxArea] = useState<number>(searchParams.get("maxArea") ? Number(searchParams.get("maxArea")) : 0);
   const [minPrice, setMinPrice] = useState<number>(
     searchParams.get("minPrice") ? Number(searchParams.get("minPrice")) : 0
   );
@@ -85,8 +88,11 @@ function PropertiesExplorerContent() {
       query: searchQuery,
       city: selectedCity,
       propertyType,
+      commercialType: commercialType === "ALL" ? undefined : commercialType as "SHOP" | "SHOWROOM" | "INDUSTRIAL_SITE",
       listingType,
       bedrooms: selectedBHK,
+      minArea: minArea || undefined,
+      maxArea: maxArea || undefined,
       minPrice: minPrice > 0 ? minPrice : undefined,
       maxPrice: maxPrice < 350000000 ? maxPrice : undefined,
       furnishingStatus: furnishing,
@@ -99,8 +105,11 @@ function PropertiesExplorerContent() {
     searchQuery,
     selectedCity,
     propertyType,
+    commercialType,
     listingType,
     selectedBHK,
+    minArea,
+    maxArea,
     minPrice,
     maxPrice,
     furnishing,
@@ -123,7 +132,10 @@ function PropertiesExplorerContent() {
     setSelectedCity("ALL");
     setListingType("ALL");
     setPropertyType("ALL");
+    setCommercialType("ALL");
     setSelectedBHK("ALL");
+    setMinArea(0);
+    setMaxArea(0);
     setMinPrice(0);
     setMaxPrice(350000000);
     setFurnishing("ALL");

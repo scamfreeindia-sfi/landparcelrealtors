@@ -124,6 +124,7 @@ export interface PropertyFilters {
   city?: string;
   locality?: string;
   propertyType?: PropertyType | "ALL";
+  commercialType?: "SHOP" | "SHOWROOM" | "INDUSTRIAL_SITE";
   listingType?: ListingType | "ALL";
   minPrice?: number;
   maxPrice?: number;

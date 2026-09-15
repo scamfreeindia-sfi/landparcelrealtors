@@ -20,7 +20,7 @@ import {
 import { Property } from "@/lib/types";
 import { PropertyCard } from "@/components/property-card";
 
-export type SearchTab = "BUY" | "RENT" | "COMMERCIAL" | "PLOT";
+export type SearchTab = "BUY" | "RENT" | "COMMERCIAL" | "COMMERCIAL/INDUSTRIAL" | "PLOT";
 
 interface HomeHeroProps {
   activeSearchTab: SearchTab;
@@ -37,10 +37,8 @@ interface HomeHeroProps {
 }
 
 const searchTabs: { id: SearchTab; label: string; icon: React.ElementType }[] = [
-  { id: "BUY", label: "Buy Property", icon: Home },
-  // { id: "RENT", label: "Rent Luxury", icon: Building2 },
-  // { id: "PLOT", label: "Gated Plots", icon: Trees },
-  // { id: "COMMERCIAL", label: "Commercial Assets", icon: Briefcase },
+  { id: "BUY", label: "Residential", icon: Home },
+  { id: "COMMERCIAL/INDUSTRIAL", label: "Commercial/ Industrial", icon: Briefcase },
 ];
 
 function SearchSelect({
@@ -86,6 +84,8 @@ export function HomeHero({
   onBHKChange,
   onSubmit,
 }: HomeHeroProps) {
+  const isCommercial = activeSearchTab === "COMMERCIAL/INDUSTRIAL";
+
   return (
     <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden px-4 pt-12 pb-20">
       <div className="absolute inset-0 z-0">
@@ -102,7 +102,7 @@ export function HomeHero({
       <div className="relative z-10 mx-auto w-full max-w-7xl space-y-8 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-white/90 px-4 py-1.5 text-xs font-bold text-emerald-800 shadow-lg backdrop-blur-md">
           <Sparkles className="h-3.5 w-3.5 text-emerald-600" />
-           <span>Tricity Premium Luxury Real Estate</span>
+           <span>Tricities Premium Luxury Real Estate</span>
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
           <span className="text-slate-600">RERA Verified</span>
         </div>
@@ -113,7 +113,7 @@ export function HomeHero({
             <span className="gradient-text-emerald">Architectural Sanctuary</span>
           </h1>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-slate-100 drop-shadow sm:text-lg">
-            Create a portfolio of premium residences, luxury apartments, and top-notch commercial and industrial spaces.
+            Curated portfolio of premium residences, luxury apartments, and top-notch commercial and industrial spaces.
           </p>
         </div>
 
@@ -135,16 +135,26 @@ export function HomeHero({
           <form onSubmit={onSubmit} className="grid grid-cols-1 items-center gap-3 pt-4 sm:grid-cols-2 lg:grid-cols-5">
             <SearchSelect label="Area" icon={MapPin} value={searchCity} onChange={onCityChange}>
               <option value="All Cities">All Area</option>
-              <option value="Chandigarh">Chandigarh</option>
-              <option value="New Chandigarh">New Chandigarh</option>
               <option value="Mohali">Mohali</option>
+              <option value="New Chandigarh">New Chandigarh</option>
+              <option value="Chandigarh">Chandigarh</option>
               <option value="Kharar">Kharar</option>
             </SearchSelect>
             <SearchSelect label="Property Type" icon={Building2} value={searchType} onChange={onTypeChange}>
               <option value="ALL">All Types</option>
-              <option value="PLOT">Plots</option>
-              <option value="VILLA">Kothi</option>
-              <option value="APARTMENT">Floor/Flats</option>              
+              {isCommercial ? (
+                <>
+                  <option value="SHOP">Buy Shop</option>
+                  <option value="SHOWROOM">Showroom</option>
+                  <option value="INDUSTRIAL_SITE">Industrial Site</option>
+                </>
+              ) : (
+                <>
+                  <option value="PLOT">Plots</option>
+                  <option value="VILLA">Kothi</option>
+                  <option value="APARTMENT">Floor/Flats</option>
+                </>
+              )}
             </SearchSelect>
             <SearchSelect label="Budget Range" icon={TrendingUp} value={searchBudget} onChange={onBudgetChange}>
               <option value="ALL">Any Budget</option>
@@ -153,12 +163,26 @@ export function HomeHero({
               <option value="3cr_5cr">₹3 Cr - ₹5 Cr</option>
               <option value="5cr_plus">₹5 Cr - Above</option>
             </SearchSelect>
-            <SearchSelect label="BHK" icon={Home} value={searchBHK} onChange={onBHKChange}>
-              <option value="ALL">Any BHK</option>
-              <option value="1">1 BHK</option>
-              <option value="2">2 BHK</option>
-              <option value="3">3 BHK</option>
-              <option value="4">4 BHK</option>
+            <SearchSelect label={isCommercial ? "Space" : "BHK"} icon={isCommercial ? Building2 : Home} value={searchBHK} onChange={onBHKChange}>
+              {isCommercial ? (
+                <>
+                  <option value="ALL">Any Area</option>
+                  <option value="under_200">Under 200 sq ft</option>
+                  <option value="200_500">200 - 500 sq ft</option>
+                  <option value="500_1000">500 - 1,000 sq ft</option>
+                  <option value="1000_3000">1,000 - 3,000 sq ft</option>
+                  <option value="3000_5000">3,000 - 5,000 sq ft</option>
+                  <option value="5000_plus">5,000 sq ft & above</option>
+                </>
+              ) : (
+                <>
+                  <option value="ALL">Any BHK</option>
+                  <option value="1">1 BHK</option>
+                  <option value="2">2 BHK</option>
+                  <option value="3">3 BHK</option>
+                  <option value="4">4 BHK & 4 BHK +</option>
+                </>
+              )}
             </SearchSelect>
             <button type="submit" className="flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-emerald-600/25 transition-all hover:scale-[1.02] hover:from-emerald-500 hover:to-teal-500">
               <Search className="h-4 w-4" />
@@ -168,7 +192,7 @@ export function HomeHero({
         </div>
 
         <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 pt-6 text-center md:grid-cols-4">
-          {[['₹500+', 'Client & Investor', 'text-slate-900'], ['1000+', 'Verified Residences', 'text-emerald-700'], ['100%', 'RERA & Title Clear', 'text-slate-900'], ['99.4%', 'Client Trust Index', 'text-amber-700']].map(([value, label, color]) => (
+          {[['500+', 'Client & Investor', 'text-slate-900'], ['1000+', 'Verified Residences', 'text-emerald-700'], ['100%', 'RERA & Title Clear', 'text-slate-900'], ['99.4%', 'Client Trust Index', 'text-amber-700']].map(([value, label, color]) => (
             <div key={label} className="rounded-2xl border border-white/40 bg-white/90 p-3 shadow-md backdrop-blur-md">
               <div className={`text-xl font-black sm:text-2xl ${color}`}>{value}</div>
               <div className="text-[11px] font-semibold text-slate-600">{label}</div>
@@ -253,5 +277,5 @@ export function TrustSection() {
 }
 
 export function DeveloperPartners() {
-  return <section className="border-t border-slate-200 bg-white py-12"><div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8"><p className="mb-6 text-xs font-bold uppercase tracking-wider text-slate-400">Authorized Channel Partner for Premier Developers</p><div className="flex flex-wrap items-center justify-center gap-8 opacity-80 sm:gap-12">{["Hillco", "Jubilee Group", "Nobel", "Marbella",].map((partner) => <span key={partner} className="text-sm font-bold tracking-wider text-slate-700 transition-colors hover:text-emerald-700">{partner}</span>)}</div></div></section>;
+  return <section className="border-t border-slate-200 bg-white py-12"><div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8"><p className="mb-6 text-xs font-bold uppercase tracking-wider text-slate-400">Authorized Channel Partner for Premier Developers</p><div className="flex flex-wrap items-center justify-center gap-8 opacity-80 sm:gap-12">{["Gillco Group", "Jubilee Group", "Nobel Ventures", "SRG Marbella",].map((partner) => <span key={partner} className="text-sm font-bold tracking-wider text-slate-700 transition-colors hover:text-emerald-700">{partner}</span>)}</div></div></section>;
 }

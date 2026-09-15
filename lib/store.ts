@@ -91,6 +91,20 @@ export const DataStore = {
       result = result.filter((p) => p.propertyType === filters.propertyType);
     }
 
+    if (filters.commercialType) {
+      const subtypeTerms = {
+        SHOP: ["shop", "retail"],
+        SHOWROOM: ["showroom"],
+        INDUSTRIAL_SITE: ["industrial", "warehouse", "factory"],
+      }[filters.commercialType];
+      result = result.filter((p) => {
+        const searchableText = [p.title, p.description, p.locality, ...p.amenities]
+          .join(" ")
+          .toLowerCase();
+        return p.propertyType === "COMMERCIAL" && subtypeTerms.some((term) => searchableText.includes(term));
+      });
+    }
+
     // Listing Type (SALE / RENT)
     if (filters.listingType && filters.listingType !== "ALL") {
       result = result.filter((p) => p.listingType === filters.listingType);
@@ -104,6 +118,14 @@ export const DataStore = {
     // Max Price
     if (filters.maxPrice !== undefined && filters.maxPrice > 0) {
       result = result.filter((p) => p.price <= filters.maxPrice!);
+    }
+
+    if (filters.minArea !== undefined) {
+      result = result.filter((p) => p.areaSqFt >= filters.minArea!);
+    }
+
+    if (filters.maxArea !== undefined) {
+      result = result.filter((p) => p.areaSqFt <= filters.maxArea!);
     }
 
     // Bedrooms

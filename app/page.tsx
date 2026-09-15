@@ -79,11 +79,30 @@ export default function HomePage() {
 
     if (activeSearchTab === "BUY") params.set("listingType", "SALE");
     if (activeSearchTab === "RENT") params.set("listingType", "RENT");
-    if (activeSearchTab === "COMMERCIAL") params.set("propertyType", "COMMERCIAL");
-    if (activeSearchTab === "PLOT") params.set("propertyType", "PLOT");
+    if (activeSearchTab === "COMMERCIAL/INDUSTRIAL") {
+      params.set("propertyType", "COMMERCIAL");
+      if (searchType !== "ALL") params.set("commercialType", searchType);
+    } else if (searchType !== "ALL") {
+      params.set("propertyType", searchType);
+    }
     if (searchCity !== "All Cities") params.set("city", searchCity);
-    if (searchType !== "ALL") params.set("propertyType", searchType);
-    if (searchBHK !== "ALL") params.set("bedrooms", searchBHK);
+    if (activeSearchTab !== "COMMERCIAL/INDUSTRIAL" && searchBHK !== "ALL") {
+      params.set("bedrooms", searchBHK);
+    }
+
+    const areaRanges: Record<string, [string?, string?]> = {
+      under_200: [undefined, "200"],
+      "200_500": ["200", "500"],
+      "500_1000": ["500", "1000"],
+      "1000_3000": ["1000", "3000"],
+      "3000_5000": ["3000", "5000"],
+      "5000_plus": ["5000", undefined],
+    };
+    if (activeSearchTab === "COMMERCIAL/INDUSTRIAL" && searchBHK !== "ALL") {
+      const [minArea, maxArea] = areaRanges[searchBHK] ?? [];
+      if (minArea) params.set("minArea", minArea);
+      if (maxArea) params.set("maxArea", maxArea);
+    }
 
     const budgets: Record<string, [string, string?]> = {
       under_1cr: ["maxPrice", "10000000"],
